@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Revision Control Using Git: The Basic Concepts</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section data-background-image="images/git-logo.jpg">
+                    <h1><font color="#FFA500">Revision Control<br />Using Git</font></h1>
+                    <h3><font color="#FFA500">The Basic Concepts</font></h3>
+                    <p>Created by <a href="mailto:mr.changyuheng@gmail.com">Chang Yu-heng (張昱珩)</a></p>
+                </section>
+
+                <section>
+                    <h2>What is a revision control system?</h2>
+                </section>
+
+                <section>
+                    <h2>It's a software which let you manage your project</h2>
+                    <h2 class="fragment"><font color="#FFA500">much easier</font></h2>
+                </section>
+
+                <section>
+                    <h1>Without it...</h1>
+                </section>
+
+                <section data-background="images/my-project.png">
+                    <h3 class="fragment"><font color="#FFA500" style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Anything you want to find</font></h3>
+                    <h2 class="fragment"><font color="#FF0000" style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">becomes a challenge to your memory</font></h2>
+                </section>
+
+                <section data-background="images/my-project.png">
+                    <h2><font color="#FF0000" style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">And it's only about a tiny project</font></h3>
+                </section>
+
+                <section>
+                    <h2>So we need a powerful tool</h2>
+                </section>
+
+                <section>
+                    <h2>And the most powerful revision</h2>
+                    <h2>control tool right now is</h2>
+                    <h1 class="fragment">Git</h1>
+                </section>
+
+                <section>
+                    <h2>Who's using Git?</h2>
+                </section>
+
+                <section data-background="images/facebook.jpg" data-background-size="contain">
+                </section>
+
+                <section data-background="images/wikipedia.png" data-background-size="contain">
+                </section>
+
+                <section data-background="images/bootstrap.jpg">
+                </section>
+
+                <section data-background="images/jquery.png">
+                </section>
+
+                <section data-background="images/linux-kernel.png" data-background-size="contain">
+                </section>
+
+                <section data-background="images/android.jpg" data-background-size="contain">
+                </section>
+
+                <section data-background="images/raspberry-pi.png" data-background-size="contain">
+                </section>
+
+                <section data-background="images/git-logo.jpg">
+                </section>
+
+                <section data-background="images/github.png">
+                </section>
+
+                <section data-background="images/g0v.png" data-background-size="contain">
+                </section>
+
+                <section>
+                    <h1>OK</h1>
+                </section>
+
+                <section>
+                    <h2>What can Git do?</h2>
+                </section>
+
+                <section>
+                    <h1>1. Anotate each line</h1>
+                </section>
+
+                <section data-background="images/blame/chinese.png" data-background-size="initial">
+                    <div style="position: relative; height: 350px;">
+                        <div style="position: relative; margin-left: auto; margin-right:auto; top: 20px;">
+                            <p>hello.py</p>
+                        </div>
+                        <div style="position: relative; margin-left: auto; margin-right:auto; top: 300px;">
+                            <p class="fragment">doesn't make sense</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Who did that?</h3>
+                    <h3 class="fragment">or</h3>
+                    <h3 class="fragment">Which version did that?</h3>
+                </section>
+
+                <section data-background="images/blame/blame.png" data-background-size="contain">
+                </section>
+
+                <section data-background="images/blame/hello.png" data-background-size="initial">
+                    <div style="position: relative; height: 350px;">
+                        <div style="position: relative; margin-left: auto; margin-right:auto; top: 20px;">
+                            <p>hello.py</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h1>2. Merge</h1>
+                </section>
+
+                <section data-background="images/merge/chinese-branch.png" data-background-size="initial">
+                    <div style="position: relative; height: 700px;">
+                        <div style="position: relative; margin-left: auto; margin-right:auto; top: 20px;">
+                            <p>hello.py</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background="images/merge/hello-branch.png" data-background-size="initial">
+                    <div style="position: relative; height: 700px;">
+                        <div style="position: relative; margin-left: auto; margin-right:auto; top: 20px;">
+                            <p>hello.py</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background="images/merge/two-branches-1.png" data-background-size="initial">
+                </section>
+
+                <section data-background="images/merge/two-branches-2.png" data-background-size="initial">
+                </section>
+
+                <section>
+                    <h2>Let's do merge</h2>
+                </section>
+
+                <section data-background="images/merge/dragon-ball-merging.jpg" data-background-size="initial">
+                    <div style="position: relative; height: 600px;">
+                        <div style="position: relative; margin-left: auto; margin-right:auto; top: 20px;">
+                            <p>融…合</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background="images/merge/merging-preview.png" data-background-size="initial">
+                </section>
+
+                <section data-background="images/merge/diff.png" data-background-size="initial">
+                    <div style="position: relative; height: 500px;">
+                        <div style="position: relative; margin-left: auto; margin-right:auto; top: 20px;">
+                            <p>diff</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background="images/merge/patch-1.png" data-background-size="initial">
+                    <div style="position: relative; height: 500px;">
+                        <div style="position: relative; margin-left: auto; margin-right:auto; top: 20px;">
+                            <p>Patch 1</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background="images/merge/patch-2.png" data-background-size="initial">
+                    <div style="position: relative; height: 500px;">
+                        <div style="position: relative; margin-left: auto; margin-right:auto; top: 20px;">
+                            <p>Patch 2</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background="images/merge/two-branches-1.png" data-background-size="initial">
+                </section>
+
+                <section data-background="images/merge/two-branches-3.png" data-background-size="initial">
+                </section>
+
+                <section>
+                    <h2>Git Gives You...</h2>
+                </section>
+
+                <section data-background="images/merge/merging.png" data-background-size="contain">
+                </section>
+
+                <section data-background="images/merge/merging-2.png" data-background-size="contain">
+                    <div class="fragment" style="position: relative; height: 500px;">
+                        <div style="position: relative; margin-left: auto; margin-right:auto; top: 20px;">
+                            <p>3-way merge</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background="images/merge/merging-3.png" data-background-size="contain">
+                </section>
+
+                <section data-background="images/merge/merging-4.png" data-background-size="contain">
+                </section>
+
+                <section data-background="images/merge/merging-preview.png" data-background-size="initial">
+                </section>
+
+                <section data-background="images/merge/merged-2.png" data-background-size="initial">
+                </section>
+
+                <section data-background="images/merge/merged-3.png" data-background-size="initial">
+                </section>
+
+                <section data-background="images/merge/dragon-ball-merged.jpg" data-background-size="initial">
+                </section>
+
+                <section data-background="images/merge/dragon-ball-merged-fat.jpg" data-background-size="initial">
+                </section>
+
+                <section data-background="images/merge/dragon-ball-merged-thin.jpg" data-background-size="initial">
+                </section>
+
+                <section>
+                    <h3>Git Can Do It For You</h3>
+                    <h3 class="fragment">If There's Not Any Confliction</h3>
+                </section>
+
+                <section data-background="images/merge/dragon-ball-merged.jpg" data-background-size="initial">
+                    <h2><font color="#FFFFFF" style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Usually Correct</font></h2>
+                </section>
+
+                <section>
+                    <h2>But...</h2>
+                    <p class="fragment">hello.py still doesn't print "hello"</p>
+                    <p class="fragment">Forget it!</p>
+                </section>
+
+                <section>
+                    <h1>3. Commit</h1>
+                </section>
+
+                <section>
+                    <p>A commit is a snapshot of your repository.</p>
+                </section>
+
+                <section data-background="images/merge/merged-3.png" data-background-size="initial">
+                </section>
+
+                <section data-background="images/commit/commits-0.png" data-background-size="initial">
+                </section>
+
+                <section data-background="images/commit/commits-1.png" data-background-size="initial">
+                </section>
+
+                <section>
+                    <p>The direction of the arrow means: <span class="fragment">"derived from".</span></p>
+                </section>
+
+                <section>
+                    <p>The graph means <span class="fragment">B derived from A.</span></p>
+                    <img src="images/commit/b-derived-from-a.png" style="border: none"></img>
+                </section>
+
+                <section>
+                    <p>Each commit only knows its parent(s).</p>
+                    <p>It has no idea about its child(rden).</p>
+                    <p class="fragment">Cause the child(ren) not even born yet. <span class="fragment">So it cannot point to its child(ren).</span></p>
+                </section>
+
+                <section>
+                    <p>If you want to do this:</p>
+                    <img src="images/commit/point-to-children.png" style="border: none"></img>
+                    <p class="fragment">You have to update B on each time a new child of B being born.</p>
+                    <p class="fragment">Doesn't make sense.</p>
+                </section>
+
+                <section>
+                    <h2>Look inside the commits</h2>
+                </section>
+
+                <section>
+                    <img src="images/commit/commit-detailed.png" style="border: none"></img>
+                    <ol>
+                        <li class="fragment">ID (sha1)</li>
+                        <li class="fragment">Size</li>
+                        <li class="fragment">Tree (database)</li>
+                        <li class="fragment">Parent</li>
+                        <li class="fragment">Author</li>
+                        <li class="fragment">Committer</li>
+                        <li class="fragment">Date</li>
+                        <li class="fragment">Message</li>
+                    </ol>
+                </section>
+
+                <section data-background="images/commit/commit.png" data-background-size="contain">
+                </section>
+
+                <section>
+                    <h1>4. Branch</h1>
+                </section>
+
+                <section>
+                    <p>Branches are just pointers which point to specific commits</p>
+                </section>
+
+                <section>
+                    <img src="images/branch/branch.png" style="border: none"></img>
+                    <p>"master" is a branch which points to commit "f30ab".</p>
+                </section>
+
+                <section>
+                    <img src="images/branch/same-branch.png" style="border: none"></img>
+                    <p>Different branches can point to the same commit.</p>
+                    <p class="fragment">So just branch it. It's cheap.</p>
+                </section>
+
+                <section>
+                    <img src="images/branch/head.png" style="border: none"></img>
+                    <p>"HEAD" represents which branch/commit your are at now.</p>
+                </section>
+
+                <section>
+                    <img src="images/branch/checkout.png" style="border: none"></img>
+                    <p>To "checkout" another branch/commit is easy. <span class="fragment" data-fragment-index="1">Just move your "HEAD".</span></p>
+                    <img src="images/branch/growing-branch.png" style="border: none" class="fragment" data-fragment-index="1"></img>
+                </section>
+
+                <section>
+                    <img src="images/branch/branched.png" style="border: none"></img>
+                    <p>With branches, you can keep different version of your work in the same repository.</p>
+                </section>
+
+                <section>
+                    <h1>Summary</h1>
+                </section>
+
+                <section data-background="images/repositorydiagram.png" data-background-size="contain">
+                </section>
+
+                <section>
+                    <h2>Thanks for your attention</h2>
+                </section>
+            </div>
+
+        </div>
+
+        <script src="reveal.js/lib/js/head.min.js"></script>
+        <script src="reveal.js/js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                progress: true,
+                history: true,
+                center: true,
+                slideNumber: true,
+                overview: true,
+
+                theme: Reveal.getQueryHash().theme || 'solarized', // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
