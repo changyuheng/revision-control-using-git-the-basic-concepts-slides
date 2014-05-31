@@ -1,2 +1,1 @@
-revision-control-using-git-slides
-=================================
+# Revision Control Using Git: The Basic Concepts
